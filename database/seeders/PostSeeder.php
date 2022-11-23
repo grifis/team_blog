@@ -26,7 +26,7 @@ class PostSeeder extends Seeder
 
         DB::table('posts')->insert([
             'title' => '役割分担',
-            'body' => '開発を進める際は、役割分担をすると効率的に開発をすることができます！'.PHP_EOL.'具体的には、デザインや画面設計を担当するフロントエンドとロジック部分やDB関連を担当するバックエンドに分かれて開発していきましょう！',
+            'body' => 'これはborderという、cssでつけることができる枠線です！'.PHP_EOL.'太さの指定や形など色々指定できるので、気になった方はコードを覗いてみたり、調べてみたりしましょう！'.PHP_EOL.'また、このプロジェクト内ではインラインCSSという、HTML内に書く簡易的なCSSを使用しています！こちらも気になった方は見てみてください！',
             'category_id' => 2,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
