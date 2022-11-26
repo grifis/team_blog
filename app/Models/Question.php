@@ -9,6 +9,10 @@ class Question extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'body',
+    ];
+    
     //answerに対するリレーション
     public function answers()
     {
