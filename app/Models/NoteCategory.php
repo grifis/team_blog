@@ -14,8 +14,8 @@ class NoteCategory extends Model
         return $this->hasMany(Note::class);
     }
 
-    public function getByCategory(int $limit_count = 5)
+    public function getByNoteCategory(int $limit_count = 5)
     {
-        return $this->notes()->with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this->notes()->with('note_category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }

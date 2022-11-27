@@ -7,7 +7,7 @@
     <body>
         <h2>投稿作成</h2>
         <p>学習したことをまとめて、発表してみましょう。</p>
-        <form action="/notes/index" method="POST">
+        <form action="/notes/index" method="POST" enctype="multipart/form-data">
             @csrf
             <div>
                 <h2>タイトル</h2>
@@ -15,9 +15,9 @@
                 <p class="title__error" style="color:red">{{ $errors->first('note.title') }}</p>
            </div>
             <h2>カテゴリー</h2>
-                <select name="note[category_id]">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <select name="note[note_category_id]">
+                    @foreach($notecategories as $notecategory)
+                        <option value="{{ $notecategory->id }}">{{ $notecategory ->name }}</option>
                     @endforeach
                 </select>
             <div>
@@ -26,8 +26,9 @@
                 <p class="body__error" style="color:red">{{ $errors->first('note.body') }}</p>
             </div>
             <h2>画像アップロード</h2>
-            
-            <input type="submit" value="保存"/>
+            <input type="file" name="image">
+        
+            <div><input type="submit" value="保存"/></div>
         </form>
         <div><a href="/notes/index">戻る</a></div>
     </body>

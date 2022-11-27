@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('image', 100)->nullable();
+            $table->foreignId('note_category_id')->constrained(); 
         });
     }
 

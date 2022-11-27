@@ -8,8 +8,8 @@
     </head>
     <body>
         <h1>Summary</h1>
-        <a href='/notes/create'>投稿する</a> 
-        <a href='/notes/edit'>編集する</a>
+        <a href='notes/create'>投稿する</a> 
+        <a href='notes/edit'>編集する</a>
         <h2>投稿一覧画面</h2>
         <div class='notes'>
             <div class='note'>
@@ -18,9 +18,10 @@
                     <p>
                         Title：<a href="/notes/{{ $note->id }}">{{ $note->title }}</a>
                     </p>
-                    <p>Category：<a href="/notes_categories/{{ $note->note_category->id }}">{{ $note->note_category->name }}</a></p>
+                    <p>Category：<a href="notes/notes_categories/{{ $note->note_category->id }}">{{ $note->note_category->name }}</a></p>
                 </div>
                 @endforeach
+                <a href="/notes/index">戻る</a>
             </div>
         </div>
     </body>
