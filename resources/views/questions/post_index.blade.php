@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>アプリ名</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
+<x-app-layout>
+
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Q&A') }}
+        </h2>
+    </x-slot>
     <body>
         <h1>アプリ名</h1>
         <h2>Q＆A</h2>
@@ -24,9 +23,8 @@
             @foreach ($questions as $question)
                 <div style='border:solid 1px; margin-bottom: 10px;'>
                     <p>
-                        <a href="/questions/{{ $question->id }}">{{ $question->body }}</a>
+                        <a href="/questions/{{ $question->id }}">{{ $question->title }}</a>
                     </p>
-                    <p>{{ $question->updated_at }}</p>
                 </div>
             @endforeach
         </div>
@@ -34,4 +32,5 @@
             {{ $questions->links() }}
         </div>
     </body>
-</html>
+    
+</x-app-layout>
