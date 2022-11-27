@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IntroduceController;
+use App\Http\Controllers\SummaryController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\QuizController;
 
 /*
@@ -39,5 +41,12 @@ Route::middleware('auth')->group(function () {
     })->middleware(['auth', 'verified'])->name('dashboard');
     //breeze関連ここまで
 });
+
+Route::get('/notes/index', [SummaryController::class, 'index'])->name('notes.index');
+Route::get('/notes/create', [SummaryController::class, 'create'])->name('notes.create');
+Route::get('/notes/{note}', [SummaryController::class, 'show'])->name('notes.show');
+Route::get('/notes_categories/{Notecategory}', [SummaryController::class, 'category_index'])->name('notes.notecategory');
+Route::post('/notes/index', [SummaryController::class, 'store'])->name('notes.store');
+Route::post('/notes/{note}', [CommentsController::class, 'store'])->name('comment.store');
 
 require __DIR__.'/auth.php';
